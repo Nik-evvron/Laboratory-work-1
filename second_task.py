@@ -1,6 +1,7 @@
 # 2 задание
 import math
 
+
 def plus(a):
     print('Введите значения через знак "+":')
     sm = sum(list(map(float, input().split('+'))))
@@ -33,14 +34,24 @@ def divide(a):
         d /= dv[i]
     return d
 
+
 def log(a):
     print('Введите значение логарифма:')
-    return math.log(input())
+    return math.log(int(input()))
+
+
+def okrug(a):
+    print('Введите значение до которого надо округлить после запятой:')
+    n = int(input())
+    print('Теперь введите само число:')
+    return round(float(input()), n)
+
 
 n = True
 while n == True:
     a = input(
-        'Введите цифру функции, которая вам нужна ([1]сложение, [2]вычитание, [3]умножение, [4]деление, [5]натур. логарифм,[0]выход из программы)\n').lower()
+        'Введите цифру функции, которая вам нужна ([1]сложение, [2]вычитание, [3]умножение, [4]деление, [5]натур. логарифм, [6]Округление,[0]выход из программы)\n'
+    ).lower()
     if a == '0':
         n = False
         exit
@@ -54,5 +65,7 @@ while n == True:
         print(divide(a))
     elif a == '5':
         print(log(a))
+    elif a == '6':
+        print(okrug(a))
     else:
         print('Этой цифры нет в списке функций')
